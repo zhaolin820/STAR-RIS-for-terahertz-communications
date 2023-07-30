@@ -3,7 +3,7 @@ function [SE,R] = sum_rate_full_digital(para, theta_t, theta_r, F, G)
 %  [SE,R] = sum_rate(para, theta_t, theta_r, F_RF, F_BB, G)
 %Inputs:
 %   para: structure of the initial parameters
-%   theta_t, theta_r, F_RF, F_BB: obtainded beamformers
+%   theta_t, theta_r, F: obtainded beamformers
 %   G: cascaded channel for all users
 %   theta_v: elevation angle
 %Outputs:

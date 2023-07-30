@@ -21,20 +21,20 @@ epsilon = 1e-3; % convergence criteria
 theta_t = randn(para.M, 1) + 1i * randn(para.M, 1); theta_t = sqrt(0.5) * theta_t ./ abs(theta_t);
 theta_r = randn(para.M, 1) + 1i * randn(para.M, 1); theta_r = sqrt(0.5) * theta_r ./ abs(theta_r);
 
-F = randn(para.N, para.K) + 1i * randn(para.N, para.N_RF); 
+F = randn(para.N, para.K) + 1i * randn(para.N, para.K); 
 F = sqrt(para.Pt)* F ./ norm(F, 'fro');
 
-F_RF = zeros(para.N, 4);
-for i = 1:4
+F_RF = zeros(para.N, para.N_RF);
+for i = 1:para.N_RF
     F_RF(:,i) = steering_vector_ULA(phi_all(i), para.N);
 end
 
 
 F_BB = inv(F_RF'*F_RF) * F_RF' * F;
 
-[SE,~] = sum_rate_full_digital(para, theta_t, theta_r, F, G);
 
 % initialize auxiliary variables
+[SE,~] = sum_rate_full_digital(para, theta_t, theta_r, F, G);
 a = sqrt(SE);
 b = w * (norm(F, 'fro')^2 + para.xi*SE) + para.Pc_HB_idp; % power consumption
 
@@ -55,7 +55,7 @@ lambda = zeros(para.K, para.K);
 
 
 %% PDD algorthm
-eta = 10;
+varepsilon = 10;
 for i = 1:40
 
     % optimize AL problem
@@ -69,7 +69,7 @@ for i = 1:40
         break; 
     end
 
-    if h <= eta    
+    if h <= varepsilon    
         % update dual variables
         Psi = Psi + 1/rho * ( F - F_RF*F_BB );
         for k = 1:para.K
@@ -80,13 +80,14 @@ for i = 1:40
             end
             lambda(k,:) = lambda(k,:) + 1/rho * ( P(k,:) -  theta_i.'*G(:,:,k)*F);
         end
+        disp('update dual variables');
     else
         % update penalty term
         rho = c*rho; 
-        disp(['rho - ' num2str(rho)]);
+        disp(['update penalty factor, rho - ' num2str(rho)]);
     end
 
-    eta = 0.7*h;
+    varepsilon = 0.7*h;
 
 end
 

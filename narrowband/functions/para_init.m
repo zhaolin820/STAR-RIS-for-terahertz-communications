@@ -26,6 +26,8 @@ para.M = para.M_h*para.M_v; % reflecting elements at RIS
 
 para.Pt = 10^(20/10); % W overall transmit power
 
+para.L = 4; % number of paths between BS and STARS
+para.Lk = 4; % number of paths between STARS and each user
 para.K = 4; % user number
 
 P_UE = 100; % 100 mW, user power 

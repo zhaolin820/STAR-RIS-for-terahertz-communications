@@ -12,7 +12,7 @@ function [theta_t, theta_r, F, F_RF, F_BB, P, a, b] = alg_BCD_independent(para, 
 %   Psi, lambda: dual variables
 %Outputs:
 %   theta_t, theta_r, F_RF, F_BB: beamformers
-%   P, a, b: auxiliary variables
+%   F, P, a, b: auxiliary variables
 %Date: 27/06/2021
 %Author: Zhaolin Wang
 
