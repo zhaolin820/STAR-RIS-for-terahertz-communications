@@ -2,7 +2,7 @@
 
 The code for the papers 
 
-**Z. Wang, X. Mu, J. Xu, and Y. Liu, “Simultaneously Transmitting and Reflecting Surface (STARS) for Terahertz Communications,” *IEEE Journal of Selected Topics in Signal Processing*, Early Access, May 2023.** [[IEEE](https://ieeexplore.ieee.org/abstract/document/10133914)] [[Arxiv](https://arxiv.org/abs/2212.00497)]
+**Z. Wang, X. Mu, J. Xu, and Y. Liu, “Simultaneously Transmitting and Reflecting Surface (STARS) for Terahertz Communications,” *IEEE Journal of Selected Topics in Signal Processing*, vol. 17, no. 4, pp. 861-877, Jul. 2023.** [[IEEE](https://ieeexplore.ieee.org/abstract/document/10133914)] [[Arxiv](https://arxiv.org/abs/2212.00497)]
 
 *Note*: In this repository, we only provide the codes for the STARS with independent phase shifts. The codes can be modified to the cases of coupled phase-shift STARS based on [[1](https://github.com/zhaolin820/coupled-phase-shift-STAR-RIS)].
 
@@ -30,10 +30,10 @@ If you in any way use this code for research, please cite our original articles 
   journal={IEEE Journal of Selected Topics in Signal Processing}, 
   title={Simultaneously Transmitting and Reflecting Surface (STARS) for Terahertz Communications}, 
   year={2023},
-  volume={},
-  number={},
-  pages={1-16},
-  doi={10.1109/JSTSP.2023.3279621}
+  month=jul,
+  volume={17},
+  number={4},
+  pages={861-877}
 }
 
 ```
